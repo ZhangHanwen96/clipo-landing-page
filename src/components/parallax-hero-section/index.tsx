@@ -54,10 +54,11 @@ export const HeroParallax = ({
         useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
         springConfig
     );
+
     return (
         <div
             ref={ref}
-            className="h-[300vh] bg-black py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+            className=" bg-black pt-20 pb-[800px] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
         >
             <Header />
             <motion.div
@@ -128,6 +129,13 @@ export const Header = () => {
                     AI Video
                 </motion.div>{" "}
                 Mixer
+                <span className="ml-4">
+                    <Logo
+                        style={{
+                            height: 30,
+                        }}
+                    />
+                </span>
             </h1>
             <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
                 {config.mainHeroSection.subHeadline}

@@ -14,8 +14,8 @@ import TrustedBy from "./components/trusted-by";
 function App() {
     return (
         <div className=" bg-white dark:bg-black">
+            <TopNav />
             <div className="relative max-w-[960px] xl:max-w-[80%] mx-auto">
-                <TopNav />
                 <HeroParallax products={products} />
                 <TrustedBy />
                 <FeaturesSectionDemo />
