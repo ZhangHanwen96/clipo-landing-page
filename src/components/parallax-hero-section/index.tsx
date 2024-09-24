@@ -6,9 +6,9 @@ import {
     useSpring,
     MotionValue,
 } from "framer-motion";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { config } from "../../config";
 import { HoverBorderGradient } from "../hover-border-gradient";
-import Logo from "@/assets/clipo-logo.svg";
 
 export const HeroParallax = ({
     products,
@@ -104,10 +104,22 @@ export const HeroParallax = ({
 
 export const Header = () => {
     return (
-        <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0 z-10">
-            <h1 className="text-2xl md:text-7xl md:leading-tight font-bold dark:text-white">
-                The Ultimate <br />
-                <motion.div
+        <div className="max-w-7xl relative mx-auto py-20 md:py-40 md:pt-60 px-4 w-full left-0 top-0 z-10">
+            {/* <h1 className="text-2xl md:text-5xl text-center md:leading-tight font-bold dark:text-white"> */}
+            <TextGenerateEffect
+                className="text-2xl md:text-5xl text-center md:leading-tight font-bold dark:text-white"
+                words="1000s of Unique Clips Daily"
+            />
+            <TextGenerateEffect
+                delay={1}
+                className="text-2xl md:text-5xl text-center md:leading-tight font-bold dark:text-white"
+                words="Turning Online Views into Foot Traffic "
+            />
+
+            {/* 1000s of Unique Clips Daily
+                <br />
+                Turning Online Views into Foot Traffic */}
+            {/* <motion.div
                     initial={{
                         backgroundSize: "0% 100%",
                     }}
@@ -115,7 +127,7 @@ export const Header = () => {
                         backgroundSize: "100% 100%",
                     }}
                     transition={{
-                        duration: 1.2,
+                        duration: 1,
                         ease: "anticipate",
                         delay: 0.5,
                     }}
@@ -127,25 +139,17 @@ export const Header = () => {
                     className="inline-block px-2 rounded-lg text-black  bg-gradient-to-r from-cyan-600 to-yellow-500 dark:from-red-600 dark:to-yellow-500"
                 >
                     AI Video
-                </motion.div>{" "}
-                Mixer
-                <span className="ml-4">
-                    <Logo
-                        style={{
-                            height: 30,
-                        }}
-                    />
-                </span>
-            </h1>
-            <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+                </motion.div> */}
+            {/* </h1> */}
+            <p className="text-center animation-fade-in w-[80%] mx-auto flex flex-wrap [--animation-delay:2s] text-base md:text-xl mt-8 dark:text-neutral-200">
                 {config.mainHeroSection.subHeadline}
             </p>
             <HoverBorderGradient
-                containerClassName="rounded-full translate-y-4"
+                containerClassName="rounded-full mx-auto translate-y-4 animation-fade-in [--animation-delay:2.8s]"
                 as="button"
                 className="dark:bg-black text-lg md:text-2xl bg-white text-black dark:text-white flex items-center space-x-2"
             >
-                <span>Learn More</span>
+                <a href="#learnMore">Learn More</a>
             </HoverBorderGradient>
         </div>
     );

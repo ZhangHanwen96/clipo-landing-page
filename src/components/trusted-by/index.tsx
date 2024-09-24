@@ -30,9 +30,11 @@ const TrustedBy = () => {
     return (
         <div className="mb-40">
             <div>
-                <h1 className="text-2xl font-bold text-center">Trusted By</h1>
+                <h1 className="text-2xl text-[#CCCCCC] font-bold text-center">
+                    Trusted By
+                </h1>
             </div>
-            <div className="relative flex h-[150px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-black md:shadow-xl">
+            <div className="relative flex h-[120px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-black md:shadow-xl">
                 <Marquee pauseOnHover className="[--duration:15s]">
                     {brands.map((brand, index) => {
                         return (

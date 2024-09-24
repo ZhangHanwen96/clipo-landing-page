@@ -33,18 +33,30 @@ const TopNav = () => {
             }}
             className="h-[64px] left-0 w-screen top-0 fixed z-50 bg-black/40 backdrop-blur"
         >
-            <div className="px-4 flex items-center h-full justify-between">
+            <div className="px-4 md:px-16 flex items-center h-full justify-between">
                 <Logo
                     style={{
                         height: 32,
                     }}
                 />
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-row gap-8">
                     <a
                         href="#benifits"
                         className="text-neutral-300 hover:text-white capitalize"
                     >
                         benifits
+                    </a>
+                    <a
+                        href="#learnMore"
+                        className="text-neutral-300 hover:text-white capitalize"
+                    >
+                        Learn more
+                    </a>
+                    <a
+                        href="#faqs"
+                        className="text-neutral-300 hover:text-white capitalize"
+                    >
+                        FAQs
                     </a>
                 </div>
 

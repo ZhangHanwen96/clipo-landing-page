@@ -2,6 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+import { InView } from "../in-view";
 
 export function FeaturesSectionDemo() {
     const features = [
@@ -66,32 +67,79 @@ export function FeaturesSectionDemo() {
     return (
         <div className="relative z-20 pb-10 lg:pb-40 max-w-7xl mx-auto">
             <div className="px-8">
-                <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-                    Packed with thousands of features
-                </h4>
-
-                <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-                    From Image generation to video generation, Everything AI has
-                    APIs for literally everything. It can even create this
-                    website copy for you.
-                </p>
+                <InView
+                    viewOptions={{
+                        once: true,
+                        margin: "0px 0px -10% 0px",
+                    }}
+                    variants={{
+                        hidden: { opacity: 0, y: 100 },
+                        visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                    <h4 className="text-2xl md:text-5xl md:leading-tight mb-8 max-w-5xl mx-auto text-center tracking-tight font-bold text-black dark:text-white">
+                        Packed with thousands of features
+                    </h4>
+                </InView>
+                <InView
+                    viewOptions={{
+                        once: true,
+                        margin: "0px 0px -10% 0px",
+                    }}
+                    variants={{
+                        hidden: { opacity: 0, y: 100 },
+                        visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                    <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+                        From Image generation to video generation, Everything AI
+                        has APIs for literally everything. It can even create
+                        this website copy for you.
+                    </p>
+                </InView>
             </div>
 
-            <div className="relative ">
+            <div className="relative">
                 <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
-                    {features.map((feature) => (
-                        <FeatureCard
+                    {features.map((feature, index) => (
+                        <InView
+                            viewOptions={{
+                                once: true,
+                                margin: "0px 0px -15% 0px",
+                            }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.3,
+                            }}
+                            variants={{
+                                visible(custom, current, velocity) {
+                                    return {
+                                        opacity: 1,
+                                        x: 0,
+                                    };
+                                },
+                                hidden(custom, current, velocity) {
+                                    return {
+                                        opacity: 0,
+                                        x: index % 2 === 0 ? -100 : 100,
+                                    };
+                                },
+                            }}
                             key={feature.title}
-                            className={feature.className}
+                            className={cn(feature.className)}
                         >
-                            <FeatureTitle>{feature.title}</FeatureTitle>
-                            <FeatureDescription>
-                                {feature.description}
-                            </FeatureDescription>
-                            <div className=" h-full w-full">
-                                {feature.skeleton}
-                            </div>
-                        </FeatureCard>
+                            <FeatureCard>
+                                <FeatureTitle>{feature.title}</FeatureTitle>
+                                <FeatureDescription>
+                                    {feature.description}
+                                </FeatureDescription>
+                                <div className=" h-full w-full">
+                                    {feature.skeleton}
+                                </div>
+                            </FeatureCard>
+                        </InView>
                     ))}
                 </div>
             </div>

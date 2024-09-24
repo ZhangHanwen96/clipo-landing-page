@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/marquee";
+import { InView } from "../in-view";
 
 const reviews = [
     {
@@ -85,16 +86,54 @@ const ReviewCard = ({
     );
 };
 
-export function MarqueeDemo() {
+function VOCBase() {
     return (
-        <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-black md:shadow-xl">
-            <Marquee pauseOnHover className="[--duration:15s]">
-                {firstRow.map((review) => (
-                    <ReviewCard key={review.username} {...review} />
-                ))}
-            </Marquee>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-black"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-black"></div>
+        <div className="mt-24">
+            <h1 className="text-2xl md:text-5xl text-black dark:text-white text-center font-bold">
+                Customer Testimonials
+            </h1>
+            <div className="relative flex py-10 w-full flex-col items-center overflow-hidden rounded-lg border bg-black md:shadow-xl">
+                <Marquee pauseOnHover className="[--duration:15s]">
+                    {firstRow.map((review) => (
+                        <ReviewCard key={review.username} {...review} />
+                    ))}
+                </Marquee>
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-black"></div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-black"></div>
+            </div>
         </div>
     );
 }
+
+const withInView = (Component) => {
+    return () => {
+        return (
+            <InView
+                viewOptions={{
+                    once: true,
+                    margin: "0px 0px -40% 0px",
+                }}
+                transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
+                }}
+                variants={{
+                    hidden: {
+                        scale: 1.5,
+                        transformOrigin: "center center",
+                        opacity: 0,
+                    },
+                    visible: {
+                        scale: 1,
+                        transformOrigin: "center center",
+                        opacity: 1,
+                    },
+                }}
+            >
+                <Component />
+            </InView>
+        );
+    };
+};
+
+export const VOC = withInView(VOCBase);

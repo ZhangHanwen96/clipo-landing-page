@@ -1,0 +1,13 @@
+.faq-bg {
+    background-color: rgba(19, 78, 74, 0.1);
+    background-image: radial-gradient(
+            at 76% 30%,
+            rgba(254, 226, 226, 0.15) 0,
+            transparent 93%
+        ),
+        radial-gradient(at 32% 73%, rgba(15, 118, 110, 0.1) 0, transparent 35%),
+        radial-gradient(at 21% 17%, rgba(147, 51, 234, 0.1) 0, transparent 79%),
+        radial-gradient(at 49% 58%, rgba(220, 38, 38, 0.1) 0, transparent 95%),
+        radial-gradient(at 85% 91%, rgba(34, 211, 238, 0.1) 0, transparent 86%),
+        radial-gradient(at 64% 88%, rgba(20, 83, 45, 0.1) 0, transparent 34%);
+}
